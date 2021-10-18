@@ -14,7 +14,6 @@ function createTestimonial(obj) {
   const p = document.createElement("p");
   const h3 = document.createElement("h3");
   const text = document.createElement("div");
-  const time = document.createElement("time");
 
   const testimonials = document.createElement("div");
 

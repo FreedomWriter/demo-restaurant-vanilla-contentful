@@ -37,6 +37,11 @@ main {
   margin: 4rem;
   max-width: 600px;
 }
+.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
 h1.section-title {
   margin: 0;
   font-size: 3.5em;
