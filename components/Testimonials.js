@@ -1,3 +1,5 @@
+import formatDate from "../utils/formatDate.js";
+
 fetch("../data/testimonials.json")
   .then((response) => {
     return response.json();
@@ -5,10 +7,6 @@ fetch("../data/testimonials.json")
   .then((data) => {
     return createTestimonial(data);
   });
-
-function formatDate(dateStr) {
-  return Intl.DateTimeFormat("us-EN").format(new Date(dateStr));
-}
 
 function createTestimonial(obj) {
   const p = document.createElement("p");
