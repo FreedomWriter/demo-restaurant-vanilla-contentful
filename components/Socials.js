@@ -21,12 +21,17 @@ function createSocial(social) {
   social.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
-    a.textContent = item.displayName;
     a.setAttribute("href", item.url);
+
+    a.textContent = item.displayName;
     li.innerText = item.channel + " : ";
+
     li.appendChild(a);
     ul.appendChild(li);
   });
+
+  // if there are no socials
+  // do not append an empty `ul`
   if (ul.hasChildNodes()) {
     main.appendChild(ul);
   }

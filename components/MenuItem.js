@@ -28,7 +28,6 @@ function createMenuItem(menuItem) {
   }
 
   section.classList.add("menu-item");
-
   header.classList.add("menu-item-header");
   title.classList.add("menu-item-title");
   price.classList.add("menu-item-price");
@@ -39,10 +38,6 @@ function createMenuItem(menuItem) {
   price.textContent = menuItem.price;
   description.textContent = menuItem.description;
 
-  //   <figure v-if=item.photo.imageUrl>
-  //   <img :src=item.photo.imageUrl :alt=item.photo.caption>
-  //   <figcaption>{{item.photo.caption}} — <a :href=item.photo.attribution.url>Photo credit</a></figcaption>
-  // </figure>
   const figure = document.createElement("figure");
   const img = document.createElement("img");
   const figcaption = document.createElement("figcaption");
