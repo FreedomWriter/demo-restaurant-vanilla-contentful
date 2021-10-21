@@ -51,8 +51,9 @@ function createMenuItem(menuItem) {
   if (menuItem.photo.imageUrl) {
     img.setAttribute("src", menuItem.photo.imageUrl);
     img.setAttribute("alt", menuItem.photo.caption);
-    figcaption.textContent = `${menuItem.photo.caption} - `;
     a.setAttribute("href", menuItem.photo.attribution.url);
+
+    figcaption.textContent = `${menuItem.photo.caption} - `;
     a.textContent = "Photo credit";
 
     figcaption.appendChild(a);
