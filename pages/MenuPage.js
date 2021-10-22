@@ -1,4 +1,6 @@
-export default function createPage(page) {
+import createMenuItems from "../components/MenuItems.js";
+
+function createPage(page) {
   const main = document.createElement("main");
   const header = document.createElement("h1");
   const intro = document.createElement("div");
@@ -22,4 +24,13 @@ fetch("../data/pages.json")
   .then((data) => {
     const { menu } = data;
     createPage(menu);
+  })
+  .then(() => {
+    fetch("../data/menu.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        data.forEach((item) => createMenuItems(item));
+      });
   });
