@@ -102,6 +102,10 @@ ul {
   background-color: #000;
   text-align: center;
 }
+.logo-home img {
+  height: 200px;
+  width: 200px;
+}
 @media (min-width: 800px) {
   .sidebar {
     width: 35%;
@@ -222,6 +226,7 @@ ul {
 
 .menu-item img {
   width: 100%;
+  height: auto;
   background-color: #fff;
   padding: 1rem;
   margin: 1rem -1rem 0;
