@@ -3,7 +3,7 @@ export default function createPage(page) {
   const header = document.createElement("h1");
   const intro = document.createElement("div");
 
-  main.classList.add(`${page.title}-page`);
+  main.classList.add(`${page.title.toLowerCase()}-page`);
   header.classList.add("section-title");
   intro.classList.add("section-intro");
   header.textContent = page.title;

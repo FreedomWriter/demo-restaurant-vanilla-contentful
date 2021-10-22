@@ -69,6 +69,6 @@ function createMenuItem(menuItem) {
     header.appendChild(dietaryUL);
   }
 
-  const menuPage = document.getElementsByClassName("menu-page")[0];
+  const menuPage = document.getElementsByTagName("main")[0];
   menuPage.appendChild(section);
 }
