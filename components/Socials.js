@@ -1,13 +1,4 @@
-fetch("../data/info.json")
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    const { social } = data;
-    createSocial(social);
-  });
-
-function createSocial(social) {
+export default function createSocial(social) {
   const h2 = document.createElement("h2");
   const ul = document.createElement("ul");
 
