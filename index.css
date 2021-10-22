@@ -227,6 +227,7 @@ ul {
 .menu-item img {
   width: 100%;
   height: auto;
+  min-width: 200px;
   background-color: #fff;
   padding: 1rem;
   margin: 1rem -1rem 0;
@@ -253,6 +254,18 @@ ul {
 .menu-item-title {
   margin: 0;
   font-size: 20px;
+}
+
+@media (min-width: 800px) {
+  .menu-item img {
+    width: 100%;
+    height: auto;
+    min-width: 600px;
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem -1rem 0;
+    box-shadow: 0 3px 6px #0004;
+  }
 }
 /* ********************** MENU PAGE END ********************** */
 /* ********************** TESTIMONIAL START ********************** */
