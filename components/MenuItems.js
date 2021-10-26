@@ -1,20 +1,12 @@
 import createDietaryIcon from "./DietIcon.js";
 
-fetch("../data/menu.json")
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    data.forEach((item) => createMenuItem(item));
-  });
-
-function createMenuItem(menuItem) {
-  const section = document.createElement("section");
-  const header = document.createElement("div");
-  const title = document.createElement("h2");
-  const price = document.createElement("div");
-  const dietaryUL = document.createElement("ul");
-  const description = document.createElement("p");
+export default async function createMenuItems(menuItem) {
+  const section = await document.createElement("section");
+  const header = await document.createElement("div");
+  const title = await document.createElement("h2");
+  const price = await document.createElement("div");
+  const dietaryUL = await document.createElement("ul");
+  const description = await document.createElement("p");
 
   // transform each true entry in `dietary`
   // into an `li` with an icon as a child
@@ -38,10 +30,10 @@ function createMenuItem(menuItem) {
   price.textContent = menuItem.price;
   description.textContent = menuItem.description;
 
-  const figure = document.createElement("figure");
-  const img = document.createElement("img");
-  const figcaption = document.createElement("figcaption");
-  const a = document.createElement("a");
+  const figure = await document.createElement("figure");
+  const img = await document.createElement("img");
+  const figcaption = await document.createElement("figcaption");
+  const a = await document.createElement("a");
 
   section.appendChild(header);
   header.appendChild(title);
@@ -51,8 +43,9 @@ function createMenuItem(menuItem) {
   if (menuItem.photo.imageUrl) {
     img.setAttribute("src", menuItem.photo.imageUrl);
     img.setAttribute("alt", menuItem.photo.caption);
-    figcaption.textContent = `${menuItem.photo.caption} - `;
     a.setAttribute("href", menuItem.photo.attribution.url);
+
+    figcaption.textContent = `${menuItem.photo.caption} - `;
     a.textContent = "Photo credit";
 
     figcaption.appendChild(a);
@@ -68,6 +61,6 @@ function createMenuItem(menuItem) {
     header.appendChild(dietaryUL);
   }
 
-  const menuPage = document.getElementsByClassName("menu-page")[0];
+  const menuPage = await document.getElementsByTagName("main")[0];
   menuPage.appendChild(section);
 }
