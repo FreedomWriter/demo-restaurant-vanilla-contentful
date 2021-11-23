@@ -167,7 +167,7 @@ ul {
 /* ********************** FOOTER END ********************** */
 /* ********************** MENU PAGE START ********************** */
 .menu-page {
-  margin: 80px;
+  margin: 1rem;
 }
 
 .section-title {
@@ -216,18 +216,15 @@ ul {
 }
 
 .menu-item-diet li {
-  margin-left: 10px;
+  margin: 0.5rem;
+  margin-left: 0;
   list-style-type: none;
-}
-
-.menu-item-diet li:first-child {
-  margin-left: 15px;
 }
 
 .menu-item img {
   width: 100%;
   height: auto;
-  min-width: 200px;
+  min-width: calc(200px - 2rem);
   background-color: #fff;
   padding: 1rem;
   margin: 1rem -1rem 0;
@@ -242,13 +239,15 @@ ul {
 
 .menu-item-header {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: left;
   margin-bottom: 10px;
+  justify-content: space between;
 }
 
 .menu-item-price {
   font-size: 1rem;
-  margin-left: 1em;
+  margin-top: 0.5rem;
 }
 
 .menu-item-title {
@@ -256,15 +255,35 @@ ul {
   font-size: 20px;
 }
 
-@media (min-width: 800px) {
-  .menu-item img {
+@media (min-width: 600px) {
+  .menu-page {
+    margin: 1rem auto;
     width: 100%;
+    padding: 1rem;
+  }
+  .menu-item img {
     height: auto;
-    min-width: 600px;
+    width: calc(600px - 2rem);
     background-color: #fff;
     padding: 1rem;
-    margin: 1rem -1rem 0;
+    margin: 1rem auto;
     box-shadow: 0 3px 6px #0004;
+  }
+
+  .menu-item-header {
+    flex-direction: row;
+    align-items: center;
+  }
+  .menu-item-diet li {
+    margin: 0;
+    margin-left: 10px;
+  }
+  .menu-item-price {
+    margin: 0;
+    margin-left: 1em;
+  }
+  .menu-item-diet li:first-child {
+    margin-left: 15px;
   }
 }
 /* ********************** MENU PAGE END ********************** */
