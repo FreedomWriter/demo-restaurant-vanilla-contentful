@@ -17,20 +17,12 @@ function createPage(page) {
   root.appendChild(main);
 }
 
-fetch("../data/pages.json")
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    const { menu } = data;
-    createPage(menu);
-  })
-  .then(() => {
-    fetch("../data/menu.json")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        data.forEach((item) => createMenuItems(item));
-      });
-  });
+const menuPageInfo = await fetch("/.netlify/functions/menuPageInfo").then((response) =>
+  response.json());
+
+createPage(menuPageInfo);
+
+const menuItems = await fetch("/.netlify/functions/menu").then((response) =>
+  response.json());
+
+menuItems.forEach(item => createMenuItems(item));

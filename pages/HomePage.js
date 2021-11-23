@@ -2,43 +2,6 @@ import createSocial from "../components/Socials.js";
 import createTestimonial from "../components/Testimonials.js";
 import createHours from "../components/Hours.js";
 
-fetch("../data/pages.json")
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    const { home } = data;
-    createPage(home);
-  })
-  .then(() => {
-    fetch("../data/testimonials.json")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return createTestimonial(data);
-      });
-  })
-  .then(() => {
-    fetch("../data/info.json")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        createHours(data);
-      });
-  })
-  .then(() => {
-    fetch("../data/info.json")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const { social } = data;
-        createSocial(social);
-      });
-  });
-
 async function createPage(page) {
   const main = await document.createElement("main");
   const header = await document.createElement("h1");
@@ -61,3 +24,23 @@ async function createPage(page) {
   const root = await document.getElementsByClassName("page")[0];
   return root.appendChild(main);
 }
+
+const homePageInfo = await fetch("/.netlify/functions/homePageInfo").then((response) =>
+  response.json());
+
+createPage(homePageInfo);
+
+const testimonials = await fetch("/.netlify/functions/testimonials").then((response) =>
+  response.json());
+
+createTestimonial(testimonials);
+
+const hours = await fetch("/.netlify/functions/hours").then((response) =>
+  response.json());
+
+createHours(hours);
+
+const social = await fetch("/.netlify/functions/socail").then((response) =>
+  response.json());
+
+createSocial(social);
